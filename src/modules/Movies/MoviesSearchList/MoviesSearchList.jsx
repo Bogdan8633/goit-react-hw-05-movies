@@ -1,13 +1,16 @@
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import styles from './moviesSearchList.module.css';
 
 const MoviesSearchList = ({ items }) => {
   const elements = items.map(({ id, original_title }) => (
-    <li onClick={() => console.log('Клікнули на Li')} id={id}>
-      <p>{original_title}</p>
-    </li>
+    <Link className={styles.item} key={id} to={`/movie/${id}`}>
+      <li onClick={() => console.log('Клікнули на Li')}>
+        <p className={styles.link}>{original_title}</p>
+      </li>
+    </Link>
   ));
 
   return (

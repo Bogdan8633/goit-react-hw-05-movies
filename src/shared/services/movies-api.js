@@ -24,10 +24,6 @@ export const searchMovies = async (q, page = 1) => {
 
 export const getMostPopular = async () => {
   const { data } = await instance.get('movie/popular');
-  console.log(
-    'Повертаємо data з запиту по самим популярним фільмам',
-    data.results
-  );
   return data;
 };
 
