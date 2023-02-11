@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import MoviesSearchList from './MoviesSearchList/MoviesSearchList';
+import Loader from './Loader/Loader';
 import { getMostPopular } from 'shared/services/movies-api';
 
 const Movies = () => {
@@ -24,7 +25,13 @@ const Movies = () => {
     fetchMovies();
   }, [setLoading, setError, setItems]);
 
-  return <MoviesSearchList items={items} />;
+  return (
+    <>
+      <MoviesSearchList items={items} />
+      {error && <h2>{error}</h2>}
+      {loading && <Loader />}
+    </>
+  );
 };
 
 export default Movies;
