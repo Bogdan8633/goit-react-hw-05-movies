@@ -27,6 +27,12 @@ export const getMostPopular = async () => {
   return data;
 };
 
+export const getMovieById = async id => {
+  const { data } = await instance.get(`movie/${id}`);
+  console.log('Це data з getMovieById', data);
+  return data;
+};
+
 // const instance = axios.create({
 //   baseURL: 'https://pixabay.com/api',
 //   params: {

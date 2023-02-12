@@ -8,7 +8,8 @@ import SingleMoviePage from 'pages/SinglePost/SingleMoviePage';
 
 export const App = () => {
   return (
-    <BrowserRouter basename="/goit-react-hw-05-movies">
+    // <BrowserRouter basename="/goit-react-hw-05-movies">
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
