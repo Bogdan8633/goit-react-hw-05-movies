@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import { getMovieById } from 'shared/services/movies-api';
 
+import styles from './singleMoviePage.module.css';
+
 const SingleMoviePage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState();
@@ -15,7 +17,6 @@ const SingleMoviePage = () => {
       try {
         const result = await getMovieById(id);
         setMovie(result);
-        // console.log('це movie', movie);
       } catch ({ response }) {
         console.log(response.data);
       }
@@ -39,20 +40,26 @@ const SingleMoviePage = () => {
 
   return (
     <>
-      <div>
-        <div>Picture</div>
-        {/* <img src={movie?.backdrop_path} alt="" /> */}
-        <h2>
-          {movie?.original_title}&nbsp;
-          <span>({year})</span>
-        </h2>
-        <p>
-          User score: <span>{userScore}%</span>
-        </p>
-        <h3>Overview</h3>
-        <p>{movie?.overview}</p>
-        <h3>Genres</h3>
-        <p>{genres}</p>
+      <div className={styles.thumb}>
+        <div>
+          <img
+            src={`https://image.tmdb.org/t/p/w300/${movie?.backdrop_path}`}
+            alt=""
+          />
+        </div>
+        <div className={styles.information}>
+          <h2 className={styles.filmTitle}>
+            {movie?.original_title}&nbsp;
+            <span>({year})</span>
+          </h2>
+          <p>
+            User score: <span>{userScore}%</span>
+          </p>
+          <h3>Overview</h3>
+          <p>{movie?.overview}</p>
+          <h3>Genres</h3>
+          <p>{genres}</p>
+        </div>
       </div>
       <div>
         <p>Additional information</p>

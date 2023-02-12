@@ -1,0 +1,11 @@
+.thumb {
+  display: flex;
+}
+
+.information {
+  margin-left: 20px;
+}
+
+.filmTitle {
+  margin-top: 0px;
+}
