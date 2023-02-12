@@ -7,6 +7,7 @@ const SingleMoviePage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState();
   const [genres, setGenres] = useState('');
+  const [userScore, setUserScore] = useState(0);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -28,6 +29,8 @@ const SingleMoviePage = () => {
       const genresList = movie.genres;
       const takeGenres = genresList.map(item => item.name).join(', ');
       setGenres(takeGenres);
+      const rating = (movie.vote_average * 10).toFixed();
+      setUserScore(rating);
     }
   }, [movie]);
 
@@ -38,7 +41,7 @@ const SingleMoviePage = () => {
         {/* <img src={movie?.backdrop_path} alt="" /> */}
         <h2>{movie?.original_title}</h2>
         <p>
-          User score: <span>100%</span>
+          User score: <span>{userScore}%</span>
         </p>
         <h3>Overview</h3>
         <p>{movie?.overview}</p>
