@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { getMovieById } from 'shared/services/movies-api';
 
@@ -24,8 +25,6 @@ const SingleMoviePage = () => {
     fetchMovie();
   }, [id]);
 
-  console.log('це movie', movie);
-
   useEffect(() => {
     if (movie) {
       const genresList = movie.genres;
@@ -43,7 +42,7 @@ const SingleMoviePage = () => {
       <div className={styles.thumb}>
         <div>
           <img
-            src={`https://image.tmdb.org/t/p/w300/${movie?.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
             alt=""
           />
         </div>
@@ -61,10 +60,10 @@ const SingleMoviePage = () => {
           <p>{genres}</p>
         </div>
       </div>
-      <div>
+      <div className={styles.additional}>
         <p>Additional information</p>
-        <p>Cast</p>
-        <p>Reviews</p>
+        <NavLink to="cast">Cast</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
       </div>
     </>
   );

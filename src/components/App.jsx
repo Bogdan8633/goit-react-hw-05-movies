@@ -5,6 +5,7 @@ import HomePage from 'pages/HomePage/HomePage';
 import MoviesPage from 'pages/MoviesPage/MoviesPage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import SingleMoviePage from 'pages/SinglePost/SingleMoviePage';
+import CastPage from 'pages/CastPage/CastPage';
 
 export const App = () => {
   return (
@@ -13,7 +14,9 @@ export const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/movie/:id" element={<SingleMoviePage />} />
+        <Route path="/movie/:id" element={<SingleMoviePage />}>
+          <Route path="cast" element={<CastPage />} />
+        </Route>
         <Route path="/movies" element={<MoviesPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

@@ -9,3 +9,8 @@
 .filmTitle {
   margin-top: 0px;
 }
+
+.additional {
+  display: flex;
+  flex-direction: column;
+}

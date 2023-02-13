@@ -29,7 +29,13 @@ export const getMostPopular = async () => {
 
 export const getMovieById = async id => {
   const { data } = await instance.get(`movie/${id}`);
-  console.log('Це data з getMovieById', data);
+  // console.log('Це data з getMovieById', data);
+  return data;
+};
+
+export const getCredits = async id => {
+  const { data } = await instance.get(`/movie/${id}/credits`);
+  console.log('Це data з credits', data);
   return data;
 };
 
