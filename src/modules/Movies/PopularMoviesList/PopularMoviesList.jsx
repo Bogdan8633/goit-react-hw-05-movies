@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import styles from './moviesSearchList.module.css';
+import styles from './popularMoviesList.module.css';
 
-const MoviesSearchList = ({ items }) => {
+const PopularMoviesList = ({ items }) => {
   const elements = items.map(({ id, original_title }) => (
     <Link className={styles.item} key={id} to={`/movie/${id}`}>
       <li onClick={() => console.log('Клікнули на Li')}>
@@ -21,13 +21,13 @@ const MoviesSearchList = ({ items }) => {
   );
 };
 
-export default memo(MoviesSearchList);
+export default memo(PopularMoviesList);
 
-MoviesSearchList.defaultProps = {
+PopularMoviesList.defaultProps = {
   items: [],
 };
 
-MoviesSearchList.propTypes = {
+PopularMoviesList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

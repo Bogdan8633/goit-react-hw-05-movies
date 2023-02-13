@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from 'modules/Navbar/Navbar';
 
 import HomePage from 'pages/HomePage/HomePage';
-import MoviesPage from 'pages/MoviesPage/MoviesPage';
+import MoviesSearchPage from 'pages/MoviesSearchPage/MoviesSearchPage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
-import SingleMoviePage from 'pages/SinglePost/SingleMoviePage';
+import SingleMoviePage from 'pages/SingleMoviePage/SingleMoviePage';
 import CastPage from 'pages/CastPage/CastPage';
 
 export const App = () => {
@@ -17,7 +17,7 @@ export const App = () => {
         <Route path="/movie/:id" element={<SingleMoviePage />}>
           <Route path="cast" element={<CastPage />} />
         </Route>
-        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/movies-search" element={<MoviesSearchPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
