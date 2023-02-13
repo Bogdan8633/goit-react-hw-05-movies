@@ -9,8 +9,8 @@ import CastPage from 'pages/CastPage/CastPage';
 
 export const App = () => {
   return (
-    // <BrowserRouter basename="/goit-react-hw-05-movies">
-    <BrowserRouter>
+    // <BrowserRouter>
+    <BrowserRouter basename="/goit-react-hw-05-movies">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
