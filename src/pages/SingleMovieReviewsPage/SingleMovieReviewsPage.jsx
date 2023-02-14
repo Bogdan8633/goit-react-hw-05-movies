@@ -35,7 +35,11 @@ const SingleMovieReviewsPage = () => {
   return (
     <>
       {loading && <Loader />}
-      {reviews.length !== 0 && <ul className={styles.list}>{elements}</ul>}
+      {reviews.length === 0 ? (
+        <h3>We don't have any reviews for this movie</h3>
+      ) : (
+        <ul className={styles.list}>{elements}</ul>
+      )}
     </>
   );
 };

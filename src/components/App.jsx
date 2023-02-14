@@ -10,8 +10,8 @@ import SingleMovieReviewsPage from 'pages/SingleMovieReviewsPage/SingleMovieRevi
 
 export const App = () => {
   return (
-    // <BrowserRouter>
-    <BrowserRouter basename="/goit-react-hw-05-movies">
+    // <BrowserRouter basename="/goit-react-hw-05-movies">
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
