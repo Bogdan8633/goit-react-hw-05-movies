@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+import { Link, useParams, useNavigate, Outlet } from 'react-router-dom';
 
 import { getMovieById } from 'shared/services/movies-api';
 
@@ -12,6 +11,8 @@ const SingleMoviePage = () => {
   const [genres, setGenres] = useState('');
   const [userScore, setUserScore] = useState(0);
   const [year, setYear] = useState('unknow');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -37,15 +38,21 @@ const SingleMoviePage = () => {
     }
   }, [movie]);
 
+  const goBack = useCallback(() => navigate(-1), [navigate]);
+
   return (
     <>
+      <button onClick={goBack}>Go back</button>
       <div className={styles.thumb}>
-        <div>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
-            alt=""
-          />
-        </div>
+        {movie && (
+          <div>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
+              alt=""
+            />
+          </div>
+        )}
+
         <div className={styles.information}>
           <h2 className={styles.filmTitle}>
             {movie?.original_title}&nbsp;
@@ -62,9 +69,10 @@ const SingleMoviePage = () => {
       </div>
       <div className={styles.additional}>
         <p>Additional information</p>
-        <NavLink to="cast">Cast</NavLink>
-        <NavLink to="reviews">Reviews</NavLink>
+        <Link to="cast">Cast</Link>
+        <Link to="reviews">Reviews</Link>
       </div>
+      <Outlet />
     </>
   );
 };
