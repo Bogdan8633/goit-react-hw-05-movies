@@ -46,7 +46,9 @@ const SingleMoviePage = () => {
 
   return (
     <>
-      <button onClick={goBack}>Go back</button>
+      <button onClick={goBack} className={styles.button}>
+        Go back
+      </button>
       {loading && <Loader />}
       <div className={styles.thumb}>
         {movie && (
