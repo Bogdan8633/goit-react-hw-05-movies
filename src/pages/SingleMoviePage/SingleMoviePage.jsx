@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link, useParams, useNavigate, Outlet } from 'react-router-dom';
-
+import Loader from 'modules/Movies/Loader/Loader';
 import { getMovieById } from 'shared/services/movies-api';
 
 import styles from './singleMoviePage.module.css';
@@ -11,16 +11,20 @@ const SingleMoviePage = () => {
   const [genres, setGenres] = useState('');
   const [userScore, setUserScore] = useState(0);
   const [year, setYear] = useState('unknow');
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
+        setLoading(true);
         const result = await getMovieById(id);
         setMovie(result);
       } catch ({ response }) {
         console.log(response.data);
+      } finally {
+        setLoading(false);
       }
     };
     fetchMovie();
@@ -43,6 +47,7 @@ const SingleMoviePage = () => {
   return (
     <>
       <button onClick={goBack}>Go back</button>
+      {loading && <Loader />}
       <div className={styles.thumb}>
         {movie && (
           <div>

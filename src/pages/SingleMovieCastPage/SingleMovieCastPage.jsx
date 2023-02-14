@@ -18,19 +18,23 @@ const SingleMovieCastPage = () => {
         setLoading(true);
         const data = await getCredits(id);
         setCast(data.cast);
-      } catch (error) {
-        console.log(error.message);
+      } catch ({ response }) {
+        console.log(response.data.message);
       } finally {
         setLoading(false);
       }
     };
 
     fetchCast();
-  }, [id]);
+  }, [id, setCast]);
 
   const elements = cast.map(({ id, name, character, profile_path }) => (
     <li key={id} className={styles.item}>
-      <img src={`https://image.tmdb.org/t/p/w200/${profile_path}`} alt="" />
+      <img
+        src={`https://image.tmdb.org/t/p/w300/${profile_path}`}
+        alt=""
+        width="300px"
+      />
       <p>{name}</p>
       <p>Character: {character}</p>
     </li>

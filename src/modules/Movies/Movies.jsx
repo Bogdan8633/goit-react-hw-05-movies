@@ -25,9 +25,9 @@ const Movies = () => {
 
   return (
     <>
+      {loading && <Loader />}
       <PopularMoviesList items={items} />
       {error && <h2>{error}</h2>}
-      {loading && <Loader />}
     </>
   );
 };

@@ -7,7 +7,7 @@ import styles from './popularMoviesList.module.css';
 const PopularMoviesList = ({ items }) => {
   const elements = items.map(({ id, original_title }) => (
     <Link className={styles.item} key={id} to={`/movie/${id}`}>
-      <li onClick={() => console.log('Клікнули на Li')}>
+      <li>
         <p className={styles.link}>{original_title}</p>
       </li>
     </Link>
