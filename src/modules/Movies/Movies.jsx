@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import PopularMoviesList from './PopularMoviesList/PopularMoviesList';
+import MoviesList from 'shared/components/MoviesList/MoviesList';
 import Loader from './Loader/Loader';
 import { getMostPopular } from 'shared/services/movies-api';
 
@@ -25,8 +25,9 @@ const Movies = () => {
 
   return (
     <>
+      <h2>Trending today</h2>
       {loading && <Loader />}
-      <PopularMoviesList items={items} />
+      <MoviesList items={items} />
       {error && <h2>{error}</h2>}
     </>
   );

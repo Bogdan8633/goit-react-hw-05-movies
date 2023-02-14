@@ -1,5 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Link, useParams, useNavigate, Outlet } from 'react-router-dom';
+import {
+  Link,
+  useParams,
+  useNavigate,
+  Outlet,
+  useLocation,
+} from 'react-router-dom';
 import Loader from 'modules/Movies/Loader/Loader';
 import { getMovieById } from 'shared/services/movies-api';
 
@@ -14,6 +20,8 @@ const SingleMoviePage = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const { from } = location.state;
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -42,7 +50,8 @@ const SingleMoviePage = () => {
     }
   }, [movie]);
 
-  const goBack = useCallback(() => navigate(-1), [navigate]);
+  console.log(from);
+  const goBack = useCallback(() => navigate(from), [navigate]);
 
   return (
     <>
@@ -76,8 +85,12 @@ const SingleMoviePage = () => {
       </div>
       <div className={styles.additional}>
         <p>Additional information</p>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+        <Link to="cast" state={{ from }}>
+          Cast
+        </Link>
+        <Link to="reviews" state={{ from }}>
+          Reviews
+        </Link>
       </div>
       <Outlet />
     </>

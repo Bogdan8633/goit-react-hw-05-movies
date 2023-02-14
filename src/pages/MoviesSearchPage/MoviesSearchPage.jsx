@@ -1,9 +1,10 @@
 import { searchMovies } from 'shared/services/movies-api';
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Loader from 'modules/Movies/Loader/Loader';
 import styles from './moviesSearchPage.module.css';
+import MoviesList from 'shared/components/MoviesList/MoviesList';
 
 const MoviesSearchPage = () => {
   const [loading, setLoading] = useState(false);
@@ -53,17 +54,7 @@ const MoviesSearchPage = () => {
       {loading && <Loader />}
       {error && <h2>{error}</h2>}
       <ul className={styles.moviesList}>
-        {movies.map(movie => (
-          <Link
-            className={styles.item}
-            key={movie.id}
-            to={`/movie/${movie.id}`}
-          >
-            <li onClick={() => console.log('Клікнули на Li')}>
-              <p className={styles.link}>{movie.original_title}</p>
-            </li>
-          </Link>
-        ))}
+        <MoviesList items={movies} />
       </ul>
       <Outlet />
     </>
