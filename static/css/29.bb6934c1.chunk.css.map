@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/29.bb6934c1.chunk.css","mappings":"AAAA,6BAIE,SAAU,CAHV,cAAe,CACf,kBAAmB,CACnB,iBAEF","sources":["pages/NotFoundPage/notFoundPage.module.css"],"sourcesContent":[".message {\n  font-size: 32px;\n  font-weight: bolder;\n  text-align: center;\n  color: red;\n}\n"],"names":[],"sourceRoot":""}
