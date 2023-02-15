@@ -7,7 +7,7 @@ import styles from './moviesList.module.css';
 const MoviesList = ({ items }) => {
   const location = useLocation();
 
-  const elements = items.map(({ id, original_title }) => (
+  const elements = items.map(({ id, title }) => (
     <Link
       className={styles.item}
       key={id}
@@ -15,7 +15,7 @@ const MoviesList = ({ items }) => {
       state={{ from: location }}
     >
       <li>
-        <p className={styles.link}>{original_title}</p>
+        <p className={styles.link}>{title}</p>
       </li>
     </Link>
   ));
@@ -37,7 +37,7 @@ MoviesList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      original_title: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
 };
