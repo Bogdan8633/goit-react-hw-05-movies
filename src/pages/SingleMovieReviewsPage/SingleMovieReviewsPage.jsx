@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getReviews } from 'shared/services/movies-api';
-import Loader from 'modules/Movies/Loader/Loader';
+import Loader from 'shared/components/Loader/Loader';
 
 import styles from './singleMovieReviewsPage.module.css';
 

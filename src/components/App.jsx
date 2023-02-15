@@ -1,13 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from 'modules/Navbar/Navbar';
 import { lazy, Suspense } from 'react';
-import Loader from 'modules/Movies/Loader/Loader';
+import Loader from 'shared/components/Loader/Loader';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const MoviesSearchPage = lazy(() =>
   import('../pages/MoviesSearchPage/MoviesSearchPage')
 );
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 const SingleMoviePage = lazy(() =>
   import('../pages/SingleMoviePage/SingleMoviePage')
 );
@@ -20,6 +19,7 @@ const SingleMovieReviewsPage = lazy(() =>
 
 export const App = () => {
   return (
+    //
     // <BrowserRouter>
     <BrowserRouter basename="/goit-react-hw-05-movies">
       <Navbar />
@@ -31,7 +31,7 @@ export const App = () => {
             <Route path="reviews" element={<SingleMovieReviewsPage />} />
           </Route>
           <Route path="/movies-search" element={<MoviesSearchPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

@@ -2,7 +2,7 @@ import { searchMovies } from 'shared/services/movies-api';
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import Loader from 'modules/Movies/Loader/Loader';
+import Loader from 'shared/components/Loader/Loader';
 import styles from './moviesSearchPage.module.css';
 import MoviesList from 'shared/components/MoviesList/MoviesList';
 
@@ -24,11 +24,6 @@ const MoviesSearchPage = () => {
         setLoading(true);
         const data = await searchMovies(movieName);
         setMovies([...data.results]);
-        console.log('При запиті нам повертається така data:', data);
-        console.log(
-          'При запиті нам повертається така data.results:',
-          data.results
-        );
       } catch (error) {
         setError(error.message);
       } finally {

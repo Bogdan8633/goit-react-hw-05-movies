@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import styles from './moviesList.module.css';
 
-const PopularMoviesList = ({ items }) => {
+const MoviesList = ({ items }) => {
   const location = useLocation();
 
   const elements = items.map(({ id, original_title }) => (
@@ -27,13 +27,13 @@ const PopularMoviesList = ({ items }) => {
   );
 };
 
-export default memo(PopularMoviesList);
+export default memo(MoviesList);
 
-PopularMoviesList.defaultProps = {
+MoviesList.defaultProps = {
   items: [],
 };
 
-PopularMoviesList.propTypes = {
+MoviesList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

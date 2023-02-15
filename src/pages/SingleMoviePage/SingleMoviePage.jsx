@@ -6,7 +6,7 @@ import {
   Outlet,
   useLocation,
 } from 'react-router-dom';
-import Loader from 'modules/Movies/Loader/Loader';
+import Loader from 'shared/components/Loader/Loader';
 import { getMovieById } from 'shared/services/movies-api';
 
 import styles from './singleMoviePage.module.css';

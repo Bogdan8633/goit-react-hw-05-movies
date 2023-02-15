@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import MoviesList from 'shared/components/MoviesList/MoviesList';
-import Loader from './Loader/Loader';
+import Loader from '../../shared/components/Loader/Loader';
 import { getMostPopular } from 'shared/services/movies-api';
 
 const Movies = () => {
