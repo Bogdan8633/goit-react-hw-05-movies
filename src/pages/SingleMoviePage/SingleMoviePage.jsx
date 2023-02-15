@@ -21,7 +21,7 @@ const SingleMoviePage = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { from } = location.state;
+  const from = location.state?.from || '/';
 
   useEffect(() => {
     const fetchMovie = async () => {

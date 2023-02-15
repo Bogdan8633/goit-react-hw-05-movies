@@ -11,6 +11,7 @@ const MoviesSearchPage = () => {
   const [error, setError] = useState(null);
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+
   const movieName = searchParams.get('moviename');
 
   useEffect(() => {
