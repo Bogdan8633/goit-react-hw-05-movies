@@ -3,7 +3,7 @@ import MoviesList from 'shared/components/MoviesList/MoviesList';
 import Loader from '../../shared/components/Loader/Loader';
 import { getMostPopular } from 'shared/services/movies-api';
 
-const Movies = () => {
+const PopularMovies = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -33,4 +33,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default PopularMovies;

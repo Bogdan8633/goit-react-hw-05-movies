@@ -17,7 +17,7 @@ export const searchMovies = async query => {
 };
 
 export const getMostPopular = async () => {
-  const { data } = await instance.get('movie/popular');
+  const { data } = await instance.get('trending/movie/day');
   return data;
 };
 

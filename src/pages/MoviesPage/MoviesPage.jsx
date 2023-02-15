@@ -3,10 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Loader from 'shared/components/Loader/Loader';
-import styles from './moviesSearchPage.module.css';
 import MoviesList from 'shared/components/MoviesList/MoviesList';
 
-const MoviesSearchPage = () => {
+const MoviesPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [movies, setMovies] = useState([]);
@@ -49,12 +48,10 @@ const MoviesSearchPage = () => {
       </form>
       {loading && <Loader />}
       {error && <h2>{error}</h2>}
-      <ul className={styles.moviesList}>
-        <MoviesList items={movies} />
-      </ul>
+      <MoviesList items={movies} />
       <Outlet />
     </>
   );
 };
 
-export default MoviesSearchPage;
+export default MoviesPage;

@@ -9,7 +9,7 @@ const items = [
   {
     id: nanoid(),
     text: 'Movies',
-    link: '/movies-search',
+    link: '/movies',
   },
 ];
 export default items;

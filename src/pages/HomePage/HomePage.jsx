@@ -1,6 +1,6 @@
-import Movies from 'modules/Movies/Movies';
+import PopularMovies from 'modules/PopularMovies/PopularMovies';
 const HomePage = () => {
-  return <Movies />;
+  return <PopularMovies />;
 };
 
 export default HomePage;

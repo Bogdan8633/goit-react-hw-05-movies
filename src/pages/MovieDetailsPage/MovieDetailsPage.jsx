@@ -84,10 +84,10 @@ const MovieDatailsPage = () => {
       </div>
       <div className={styles.additional}>
         <p>Additional information</p>
-        <Link to="cast" state={{ from }}>
+        <Link to="cast" state={{ from }} className={styles.moreInfo}>
           Cast
         </Link>
-        <Link to="reviews" state={{ from }}>
+        <Link to="reviews" state={{ from }} className={styles.moreInfo}>
           Reviews
         </Link>
       </div>
