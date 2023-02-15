@@ -50,8 +50,7 @@ const SingleMoviePage = () => {
     }
   }, [movie]);
 
-  console.log(from);
-  const goBack = useCallback(() => navigate(from), [navigate]);
+  const goBack = useCallback(() => navigate(from), [navigate, from]);
 
   return (
     <>
