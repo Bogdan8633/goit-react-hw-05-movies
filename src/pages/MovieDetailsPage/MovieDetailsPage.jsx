@@ -9,9 +9,9 @@ import {
 import Loader from 'shared/components/Loader/Loader';
 import { getMovieById } from 'shared/services/movies-api';
 
-import styles from './singleMoviePage.module.css';
+import styles from './movieDetailsPage.module.css';
 
-const SingleMoviePage = () => {
+const MovieDatailsPage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState();
   const [genres, setGenres] = useState('');
@@ -96,4 +96,4 @@ const SingleMoviePage = () => {
   );
 };
 
-export default SingleMoviePage;
+export default MovieDatailsPage;

@@ -1,13 +1,11 @@
-// import CastInfo from '../../modules/Movies/CastInfo/CastInfo';
-
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getCredits } from 'shared/services/movies-api';
 import Loader from 'shared/components/Loader/Loader';
 
-import styles from './singleMovieCastPage.module.css';
+import styles from './castPage.module.css';
 
-const SingleMovieCastPage = () => {
+const CastPage = () => {
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -48,4 +46,4 @@ const SingleMovieCastPage = () => {
   );
 };
 
-export default SingleMovieCastPage;
+export default CastPage;

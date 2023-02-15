@@ -7,28 +7,23 @@ const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const MoviesSearchPage = lazy(() =>
   import('../pages/MoviesSearchPage/MoviesSearchPage')
 );
-const SingleMoviePage = lazy(() =>
-  import('../pages/SingleMoviePage/SingleMoviePage')
+const MovieDatailsPage = lazy(() =>
+  import('../pages/MovieDetailsPage/MovieDetailsPage')
 );
-const SingleMovieCastPage = lazy(() =>
-  import('../pages/SingleMovieCastPage/SingleMovieCastPage')
-);
-const SingleMovieReviewsPage = lazy(() =>
-  import('../pages/SingleMovieReviewsPage/SingleMovieReviewsPage')
-);
+const CastPage = lazy(() => import('../pages/CastPage/CastPage'));
+const ReviewsPage = lazy(() => import('../pages/ReviewsPage/ReviewsPage'));
 
 export const App = () => {
   return (
-    //
-    // <BrowserRouter>
-    <BrowserRouter basename="/goit-react-hw-05-movies">
+    // <BrowserRouter basename="/goit-react-hw-05-movies">
+    <BrowserRouter>
       <Navbar />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/movie/:id" element={<SingleMoviePage />}>
-            <Route path="cast" element={<SingleMovieCastPage />} />
-            <Route path="reviews" element={<SingleMovieReviewsPage />} />
+          <Route path="/movie/:id" element={<MovieDatailsPage />}>
+            <Route path="cast" element={<CastPage />} />
+            <Route path="reviews" element={<ReviewsPage />} />
           </Route>
           <Route path="/movies-search" element={<MoviesSearchPage />} />
           <Route path="*" element={<HomePage />} />

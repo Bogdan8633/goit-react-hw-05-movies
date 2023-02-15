@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import { getReviews } from 'shared/services/movies-api';
 import Loader from 'shared/components/Loader/Loader';
 
-import styles from './singleMovieReviewsPage.module.css';
+import styles from './reviewsPage.module.css';
 
-const SingleMovieReviewsPage = () => {
+const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -44,4 +44,4 @@ const SingleMovieReviewsPage = () => {
   );
 };
 
-export default SingleMovieReviewsPage;
+export default ReviewsPage;
