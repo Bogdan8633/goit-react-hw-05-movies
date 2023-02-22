@@ -44,7 +44,11 @@ const CastPage = () => {
   return (
     <>
       {loading && <Loader />}
-      {cast.length !== 0 && <ul className={styles.list}>{elements}</ul>}
+      {cast.length === 0 ? (
+        <h3>We have no information about the cast of this film.</h3>
+      ) : (
+        <ul className={styles.list}>{elements}</ul>
+      )}
     </>
   );
 };
